@@ -2,17 +2,17 @@
   "env": {
     "REACT_APP_ENDPOINT": {
       "description": "App Endpoint",
-      "value": "http://localhost/v1",
+      "value": "http://143.198.145.61/v1",
       "required": true
     },
     "REACT_APP_PROJECT": {
       "description": "Project ID",
-      "value": "627cbc27f06bbbb101c9",
+      "value": "627d7f8ba8b4cef85145",
       "required": true
     },
     "REACT_APP_COLLECTION_ID": {
       "description": "Collection ID",
-      "value": "627cbc545eed6984d1e6",
+      "value": "627d81eb2c82c9cc3718",
       "required": true
     }
   },
