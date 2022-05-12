@@ -1,0 +1,25 @@
+{
+  "env": {
+    "REACT_APP_ENDPOINT": {
+      "description": "App Endpoint",
+      "value": "http://localhost/v1",
+      "required": true
+    },
+    "REACT_APP_PROJECT": {
+      "description": "Project ID",
+      "value": "627cbc27f06bbbb101c9",
+      "required": true
+    },
+    "REACT_APP_COLLECTION_ID": {
+      "description": "Collection ID",
+      "value": "627cbc545eed6984d1e6",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
+  ]
+}
+
