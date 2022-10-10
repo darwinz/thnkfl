@@ -60,21 +60,17 @@ const Appreciation = ({ user, dispatch }) => {
             📝 <br /> &nbsp; Thankful for...
           </div>
 
-          (
+          { (lastAppreciation && isToday(lastAppreciation.date)) && <div>✅ You've added to your thankful list today</div> }
 
-            { (lastAppreciation && isToday(lastAppreciation.date)) && <div>✅ You've added to your thankful list today</div> }
-
-            <form onSubmit={handleAddAppreciation}>
-              <input
-                type="text"
-                className="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
-                placeholder="🤔   What am I thankful for today?"
-                value={currentAppreciation}
-                onChange={(e) => setCurrentAppreciation(e.target.value)}
-              ></input>
-            </form>
-
-          )
+          <form onSubmit={handleAddAppreciation}>
+            <input
+              type="text"
+              className="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+              placeholder="🤔   What am I thankful for today?"
+              value={currentAppreciation}
+              onChange={(e) => setCurrentAppreciation(e.target.value)}
+            ></input>
+          </form>
 
           {isLoading && <h1> Loading .... </h1>}
 
