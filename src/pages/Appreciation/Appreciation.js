@@ -60,7 +60,7 @@ const Appreciation = ({ user, dispatch }) => {
             📝 <br /> &nbsp; Thankful for...
           </div>
 
-          { (lastAppreciation && isToday(lastAppreciation.date)) ? (<div>"You've already been thankful today"</div>) : (
+          { (lastAppreciation && isToday(lastAppreciation.date)) && <div>✅ You've added to your thankful list today</div> }
 
           <form onSubmit={handleAddAppreciation}>
             <input
@@ -71,8 +71,6 @@ const Appreciation = ({ user, dispatch }) => {
               onChange={(e) => setCurrentAppreciation(e.target.value)}
             ></input>
           </form>
-
-          )}
 
           {isLoading && <h1> Loading .... </h1>}
 
