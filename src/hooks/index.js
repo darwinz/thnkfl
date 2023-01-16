@@ -38,7 +38,8 @@ export const useGetAppreciations = (stale) => {
     const getAppreciations = async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
-        const data = await api.listDocuments(Server.collectionID);
+        const data = await api.listDocuments(Server.collectionID)
+            .then(documents => documents, error => console.log(error));
         if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: data.documents });
         }
@@ -86,7 +87,8 @@ export const useGetMostRecentAppreciation = (stale) => {
     const getMostRecentAppreciation = async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
-        const data = await api.getMostRecentDocument(Server.collectionID);
+        const data = await api.getMostRecentDocument(Server.collectionID)
+          .then(document => document, error => console.log(error));
         if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: data.documents });
         }
@@ -133,7 +135,8 @@ export const useGetUser = () => {
     const getAppreciations = async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
-        const account = await api.getAccount();
+        const account = await api.getAccount()
+          .then(account => account, error => console.log(error));
         if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: account });
         }

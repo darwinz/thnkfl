@@ -32,7 +32,8 @@ const Appreciation = ({ user, dispatch }) => {
         data,
         [`user:${user["$id"]}`],
         [`user:${user["$id"]}`]
-      );
+      )
+      .then(document => document, error => console.log(error));
       setStale({ stale: true });
       setCurrentAppreciation("");
     } catch (e) {
@@ -44,7 +45,8 @@ const Appreciation = ({ user, dispatch }) => {
   const handleLogout = async (e) => {
     dispatch({ type: FetchState.FETCH_INIT });
     try {
-      await api.deleteCurrentSession();
+      await api.deleteCurrentSession()
+        .then(success => success, error => console.log(error));
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: null });
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });

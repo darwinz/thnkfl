@@ -12,8 +12,10 @@ const Login = ({ dispatch }) => {
     e.preventDefault();
     dispatch({ type: FetchState.FETCH_INIT });
     try {
-      await api.createSession(email, password);
-      const data = await api.getAccount();
+      await api.createSession(email, password)
+        .then(success => success, error => console.log(error));
+      const data = await api.getAccount()
+        .then(account => account, error => console.log(error));
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });
