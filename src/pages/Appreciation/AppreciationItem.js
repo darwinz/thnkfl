@@ -6,7 +6,8 @@ const AppreciationItem = ({ item, setStale }) => {
   const handleDelete = async (e, item) => {
     console.log("Deleting Appreciation");
     try {
-      await api.deleteDocument(Server.collectionID, item["$id"]);
+      await api.deleteDocument(Server.collectionID, item["$id"])
+        .then(success => success, error => console.log(error));
       setStale({ stale: true });
     } catch (e) {
       console.log("Error in deleting appreciation");

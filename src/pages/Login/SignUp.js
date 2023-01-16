@@ -11,8 +11,10 @@ const SignUp = ({ setRegister, dispatch }) => {
     e.preventDefault();
     dispatch({ type: FetchState.FETCH_INIT });
     try {
-      const user = await api.createAccount(email, password, name);
-      await api.createSession(email, password);
+      const user = await api.createAccount(email, password, name)
+        .then(account => account, error => console.log(error));
+      await api.createSession(email, password)
+        .then(session => session, error => console.log(error));
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: user });
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });
