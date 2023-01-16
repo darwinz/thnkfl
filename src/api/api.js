@@ -57,10 +57,10 @@ let api = {
     );
   },
 
-  updateDocument: (collectionId, documentId, data, read, write) => {
+  updateDocument: (collectionId, documentId, data, permissions) => {
     return api
       .provider()
-      .thanksDB.updateDocument(Server.databaseID, collectionId, documentId, data, [read, write]);
+      .thanksDB.updateDocument(Server.databaseID, collectionId, documentId, data, permissions);
   },
 
   deleteDocument: (collectionId, documentId) => {
