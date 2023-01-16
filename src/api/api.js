@@ -36,10 +36,10 @@ let api = {
     return api.provider().account.deleteSession('current');
   },
 
-  createDocument: (collectionId, data, read, write) => {
+  createDocument: (collectionId, data, permissions) => {
     return api
       .provider()
-      .thanksDB.createDocument(Server.databaseID, collectionId, 'unique()', data, [read, write]);
+      .thanksDB.createDocument(Server.databaseID, collectionId, 'unique()', data, permissions);
   },
 
   listDocuments: (collectionId, queries = []) => {
