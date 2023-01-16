@@ -23,15 +23,16 @@ const Appreciation = ({ user, dispatch }) => {
     console.log("Adding Appreciation");
     const data = {
       content: currentAppreciation,
-      date: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
     console.log(data, user);
     try {
       await api.createDocument(
         Server.collectionID,
         data,
-        [`user:${user["$id"]}`],
-        [`user:${user["$id"]}`]
+        [[`user:${user["$id"]}`],
+        [`user:${user["$id"]}`]]
       )
       .then(document => document, error => console.log(error));
       setStale({ stale: true });
@@ -42,7 +43,7 @@ const Appreciation = ({ user, dispatch }) => {
   };
 
 
-  const handleLogout = async (e) => {
+  const handleLogout = async () => {
     dispatch({ type: FetchState.FETCH_INIT });
     try {
       await api.deleteCurrentSession()

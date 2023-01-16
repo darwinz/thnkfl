@@ -1,4 +1,4 @@
-import { Client, Account, Databases } from "appwrite";
+import { Client, Account, Databases, Query } from "appwrite";
 import { Server } from "../utils/config";
 
 let api = {
@@ -47,7 +47,14 @@ let api = {
   },
 
   getMostRecentDocument: (collectionId) => {
-    return api.provider().thanksDB.listDocuments(Server.databaseID, collectionId, [1, 0, 'lastId']);
+    return api.provider().thanksDB.listDocuments(
+      Server.databaseID,
+      collectionId,
+      [
+        Query.limit(1),
+        Query.orderDesc('createdAt')
+      ]
+    );
   },
 
   updateDocument: (collectionId, documentId, data, read, write) => {
