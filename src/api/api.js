@@ -5,7 +5,7 @@ let api = {
   sdk: {},
 
   provider: () => {
-    if (api.sdk) {
+    if (!!api.sdk.keys) {
       return api.sdk;
     }
 
