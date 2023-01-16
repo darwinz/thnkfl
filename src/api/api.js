@@ -36,7 +36,7 @@ let api = {
     return api.provider().account.deleteSession('current');
   },
 
-  createDocument: (collectionId, data, permissions) => {
+  createDocument: (collectionId, data, permissions = []) => {
     return api
       .provider()
       .thanksDB.createDocument(Server.databaseID, collectionId, 'unique()', data, permissions);
