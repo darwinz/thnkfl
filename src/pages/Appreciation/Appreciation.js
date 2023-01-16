@@ -31,8 +31,7 @@ const Appreciation = ({ user, dispatch }) => {
       await api.createDocument(
         Server.collectionID,
         data,
-        [[`user:${user["$id"]}`],
-        [`user:${user["$id"]}`]]
+        [`user:${user["$id"]}`, `user:${user["$id"]}`]
       )
       .then(document => document, error => console.log(error));
       setStale({ stale: true });
