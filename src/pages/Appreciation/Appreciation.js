@@ -75,7 +75,7 @@ const Appreciation = ({ user, dispatch }) => {
 
           {isLoading && <h1> Loading .... </h1>}
 
-          { (appreciations) && <ul> {appreciations.slice(0,4).map((item) => ( <AppreciationItem key={item["$id"]} item={item} setStale={setStale} />))} </ul> }
+          { (appreciations) && <ul> {appreciations.slice(0,20).map((item) => ( <AppreciationItem key={item["$id"]} item={item} setStale={setStale} />))} </ul> }
         </div>
       </section>
 
