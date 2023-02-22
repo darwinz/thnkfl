@@ -58,7 +58,7 @@ const Appreciation = ({ user, dispatch }) => {
         {isError && <Alert color="red" message="Something went wrong..." />}
         <div className="my-auto p-16 rounded-lg text-center">
           <div className="font-bold text-3xl md:text-5xl lg:text-6xl">
-            📝 <br /> &nbsp; Thankful for...
+            <img src="logo.png" alt="logo" /> <br /> &nbsp; Thankful for...
           </div>
 
           { (lastAppreciation && isToday(lastAppreciation.date)) && <div>✅ You've added to your thankful list today</div> }
