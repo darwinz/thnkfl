@@ -23,8 +23,6 @@ const Appreciation = ({ user, dispatch }) => {
     console.log("Adding Appreciation");
     const data = {
       content: currentAppreciation,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     };
     console.log(data, user);
     try {
