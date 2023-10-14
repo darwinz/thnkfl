@@ -1,4 +1,16 @@
 # THNKFL
 
-A simplistic and minimal daily gratitude journal to add positivity to your day.
+## Prerequisites
+* Node.js >= 10.0.0
+* Npm >= 5.6.0
+* Docker
 
+## Setup ##
+```
+make run
+```
+
+## Stop Running ##
+```
+make teardown
+```
