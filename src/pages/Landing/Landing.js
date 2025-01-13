@@ -2,10 +2,10 @@ import { appwrite, github, twitter, react } from "../icons";
 import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    history.push("/appreciations");
+    navigate("/appreciations");
   };
 
   const links = [
