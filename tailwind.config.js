@@ -1,25 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: {
-    enable : true,
-    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-    options : {
-      safelist: [/^w-/]
-    },
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/*.js","./src/**/*.{html,js,jsx,ts,tsx,vue}",'./src/pages/**/*.{html,js}','./src/components/**/*.{html,js}',],
   theme: {
     extend: {},
-    fontFamily: {
-      sans: ['Avenir', 'Helvetica', 'Arial', 'sans-serif']
-    }
-  },
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-      cursor: ['disabled'],
-    }
   },
   plugins: [
     require('@tailwindcss/forms')
   ],
 }
+

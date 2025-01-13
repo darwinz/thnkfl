@@ -1,8 +1,9 @@
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Appreciation from "./pages/Appreciation/Appreciation";
 import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import { useGetUser } from "./hooks";
+import "./output.css";
 
 function App() {
   // eslint-disable-next-line
@@ -10,18 +11,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/appreciations">
-          {user ? <Appreciation user={user} dispatch={dispatch} /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/login">
-          {user ? <Redirect to="/appreciations" /> : <Login dispatch={dispatch}/>}
-        </Route>
-        <Route exact path="/">
-          <Landing />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+      <Routes>
+        <Route path="/appreciations" element={user ? <Appreciation user={user} dispatch={dispatch} /> : <Navigate to="/login" />} />
+        <Route path="/login" element={user ? <Navigate to="/appreciations" /> : <Login dispatch={dispatch}/>} />
+        <Route exact path="/" element={<Landing />} />
+      </Routes>
     </BrowserRouter>
   );
 }

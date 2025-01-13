@@ -1,8 +1,8 @@
 import { appwrite, github, twitter, react } from "../icons";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleClick = () => {
     history.push("/appreciations");
@@ -25,13 +25,12 @@ const Landing = () => {
 
   return (
     <>
-      <section className="container h-screen mx-auto flex">
+      <section className="container mx-auto flex">
         <div className="flex flex-col mx-auto justify-center p-6 text-center">
           <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">Introducing</p>
           <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold">Thankful for...</h1>
           <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">
-            A positivity app built with {appwrite(8)} Appwrite and {react(8)}{" "}
-            React
+            A positivity app
           </p>
           <button
             onClick={handleClick}
@@ -44,7 +43,7 @@ const Landing = () => {
 
       <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8 flex">
         {links.map((item, key) => (
-          <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
+          <div key={key} className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
             <a href={item["href"]}>{item["icon"]}</a>
           </div>
         ))}
