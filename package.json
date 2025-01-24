@@ -1,10 +1,15 @@
 {
   "name": "thnkfl",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "appwrite": "^16.1.0",
+    "node": "22.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
